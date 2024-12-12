@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Hizmetleri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212; /* Koyu arka plan */
+      color: #e0e0e0; /* Açık gri yazı rengi */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #ff0000; /* YouTube kırmızı rengi */
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      font-size: 36px; /* Daha büyük başlık */
+      margin: 8px 0;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header p {
+      font-size: 14px; /* Küçültülmüş açıklama */
+      font-weight: 500;
+      color: #e0e0e0;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ff0000; /* YouTube kırmızı rengi */
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #cc0000; /* YouTube'un koyu kırmızı tonu */
+      transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .button:focus {
+      background-color: #cc0000; /* Fokus durumunda renk değişimi */
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Fokus kenarlık efekti */
+    }
+
+    .button .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    .button span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .button .arrow {
+      font-size: 18px;
+    }
+
+    /* Scrollbar özelleştirme */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #ff0000;
+      border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 28px; /* Mobilde başlık daha küçük */
+      }
+      .buttons-container {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .button {
+        font-size: 16px; /* Mobilde buton metni boyutu küçültüldü */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header i {
+        font-size: 50px;
+      }
+      .header h1 {
+        font-size: 24px; /* Mobilde başlık boyutu küçültüldü */
+      }
+      .button {
+        font-size: 14px;
+        padding: 10px;
+      }
+      .button .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <i class="fab fa-youtube"></i> <!-- YouTube ikonu -->
+    <h1>YOUTUBE SERVİSLERİ</h1> <!-- Başlık güncellendi -->
+    <p>YouTube kanalınızı büyütmek, videolarınıza etkileşim eklemek için çeşitli paketlerimizden faydalanabilirsiniz.</p>
+  </div>
+
+
+
+  <div class="buttons-container">
+    <a href="https://www.shopier.com/31488137" class="button">
+      <div class="icon"><i class="fas fa-user-plus"></i></div>
+    
+    
+      <span>Abone Satın Al</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+ 
+ 
+ 
+ 
+    <a href="https://www.shopier.com/31488191" class="button">
+      <div class="icon"><i class="fas fa-comment"></i></div>
+      <span>Yorum Satın Al</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+      
+      
+      
+      
+      
+          </a>
+    <a href="https://www.shopier.com/31488219" class="button">
+      <div class="icon"><i class="fas fa-thumbs-up"></i></div>
+      <span>Beğeni Satın Al</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+
+
+
+
+
+   </a>
+    <a href="https://www.shopier.com/31488284" class="button">
+      <div class="icon"><i class="fas fa-eye"></i></div> <!-- İzlenme ikonunu değiştirdik -->
+      <span>İzlenme Satın Al</span> <!-- Metni değiştirdik -->
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+</body>
+</html>
