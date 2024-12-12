@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hesap Kapama Servisi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1A1A2E; /* Sıcak koyu mavi */
+      color: #F0F4F8; /* Açık gri-beyaz yazı rengi */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #9B4D96; /* Mor-koyu pembe */
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      font-size: 36px;
+      margin: 8px 0;
+      font-weight: 700;
+      color: #F0F4F8; /* Beyaz rengi */
+    }
+
+    .header p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #D1D9E6; /* Açık gri */
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #9B4D96; /* Mor-koyu pembe */
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #7A3A7B; /* Daha koyu mor */
+      transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:focus {
+      background-color: #7A3A7B;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .button .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    .button span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .button .arrow {
+      font-size: 18px;
+    }
+
+    /* Scrollbar özelleştirme */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #9B4D96;
+      border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 28px;
+      }
+      .buttons-container {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .button {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header i {
+        font-size: 50px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .button {
+        font-size: 14px;
+        padding: 10px;
+      }
+      .button .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <i class="fas fa-ban"></i> <!-- İkon olarak yasak simgesi kullanıldı -->
+    <h1>HESAP KAPAMA SERVİSİ</h1>
+    <p>rahatsız olduğunuz,şikayet veya taklit hesapları kapatmak mı istiyorsunuz O zaman bu servisimiz tam size göre ☺️</p>
+  </div>
+
+  <div class="buttons-container">
+    <a href="https://www.shopier.com/ShowProductNew/products.php?id=31488490" class="button">
+      <div class="icon"><i class="fab fa-instagram"></i></div>
+      <span>Instagram Hesap Kapat</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="https://www.shopier.com/ShowProductNew/products.php?id=31488490" class="button">
+      <div class="icon"><i class="fab fa-tiktok"></i></div>
+      <span>TikTok Hesap Kapat</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="https://www.shopier.com/ShowProductNew/products.php?id=31488490" class="button">
+      <div class="icon"><i class="fab fa-youtube"></i></div>
+      <span>YouTube Hesap Kapat</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="https://www.shopier.com/ShowProductNew/products.php?id=31488490" class="button">
+      <div class="icon"><i class="fab fa-telegram-plane"></i></div>
+      <span>Telegram Hesap Kapat</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+</body>
+</html>
