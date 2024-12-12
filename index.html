@@ -1,204 +1,325 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    
-    
-    
-    
-    
-    
-    
-    
-    <head>
-    <!-- Karakter Seti -->
-    <meta charset="UTF-8">
-    
-    <!-- Sayfa Açıklaması (SEO için önemlidir) -->
-    <meta name="description" content="Repoxy Medya, sosyal medya pazarlama (SMM) hizmetleri sunan bir platformdur. Etkili sosyal medya yönetimi ve analiz araçları ile işletmenizi büyütün.">
-
-    <!-- Anahtar Kelimeler (SEO için) -->
-    <meta name="keywords" content="Repoxy Medya, sosyal medya pazarlama, SMM paneli, sosyal medya yönetimi, Instagram, Twitter, Facebook, reklam yönetimi">
-
-    <!-- Açıklama ve Resim için Open Graph Meta Etiketleri (Sosyal Medya Paylaşımı için) -->
-    <meta property="og:title" content="Repoxy Medya - Sosyal Medya Pazarlama Paneli">
-    <meta property="og:description" content="Repoxy Medya, sosyal medya pazarlama (SMM) hizmetleri sunan bir platformdur. Etkili sosyal medya yönetimi ve analiz araçları ile işletmenizi büyütün.">
-    <meta property="og:image" content="https://i.hizliresim.com/a1sff99.png"> <!-- Paylaşılacak görsel -->
-    <meta property="og:url" content="https://i.hizliresim.com/a1sff99.png">
-    
-    <!-- Favicon (Tarayıcı sekmesinde görünen küçük simge) -->
-    <link rel="icon" href="https://www.repoxymedya.com/favicon.ico" type="image/x-icon">
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  <meta    charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Repoxy Medya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Sayfa genel ayarları */
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #181818;
-      color: #fff;
-      display: flex;
-      justify-content: center;  /* Sayfa ortalamayı sağlar */
-      align-items: center;  /* Sayfa ortalamayı sağlar */
-      height: 100vh;
       margin: 0;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1e23;
+      color: #e0e0e0;
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      padding: 20px;
     }
 
-    /* Profil fotoğrafı ve yazı */
-    .profile {
-      margin-bottom: 20px;
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .profile img {
-      width: 150px;
-      height: 150px;
+    .header img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
     }
 
-    .profile h1 {
-      margin-top: 10px;
-      font-size: 24px;
-      font-weight: bold;
+    .header h1 {
+      font-size: 30px;
+      margin: 8px 0;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
     }
 
-    .profile p {
-      font-size: 14px;
-      color: #aaa;
+    .header h1 span {
+      background-color: #1877f2;
+      border-radius: 50%;
+      color: #ffffff;
+      padding: 1px 3px; /* Daha da küçülttük */
+      margin-left: 10px;
+      font-size: 10px; /* Tiki daha küçük yapmak için font-size'ı daha da küçültüyoruz */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: 900;
     }
 
-    /* Butonlar için container */
-    .button-container {
+    .header p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #e0e0e0;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .search-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #333333;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .search-container input {
+      width: 100%;
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-container button {
+      background-color: #444444;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #555555;
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       gap: 15px;
-      align-items: center;  /* Butonları sayfada ortalar */
-      padding: 20px;
-      width: 100%;
-      max-width: 320px;
     }
 
-    /* Genel buton stili */
     .button {
-      background-color: #1a2a3a;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      justify-content: space-between;  /* İkonlar ve yazılar arasında boşluk bırakır */
-      gap: 10px;
-      width: 100%;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      max-width: 320px;  /* Maksimum buton genişliği */
+      justify-content: space-between;
+      background-color: #1877f2;
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     .button:hover {
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      background-color: #155db8;
       transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
     }
 
     .button .icon {
-      font-size: 20px;
-    }
-
-    .button .title {
-      font-size: 14px;
-      font-weight: bold;
       display: flex;
-      justify-content: center;  /* Yazıyı ortalar */
-      flex-grow: 1;  /* Butonun genişliğini yazıya göre ayarlar */
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
     }
 
-    /* Sayfa altındaki telif hakkı yazısı */
-    .copyright {
-      margin-top: 30px;
-      font-size: 12px;
-      color: #888;
+    .button span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    /* İkonlar için düzenleme */
-    .icon-only {
-      font-size: 30px;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .button .arrow {
+      font-size: 18px;
     }
 
-    .icon-only:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    ::-webkit-scrollbar {
+      width: 6px;
     }
 
+    ::-webkit-scrollbar-thumb {
+      background-color: #1877f2;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 24px;
+      }
+      .buttons-container {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .button {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header img {
+        width: 80px;
+        height: 80px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .button {
+        font-size: 13px;
+        padding: 10px;
+      }
+      .button .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="profile">
-    <img src="https://i.hizliresim.com/a1sff99.png" alt="Profile Image">
-    <h1>Repoxy Medya √</h1>
-    <p>"Repoxy Medya: Sosyal medya ile dijital başarınızı artırın."
-
-
-
-</p>
+  <div class="header">
+    <img src="https://i.hizliresim.com/9u8kefr.png" alt="Repoxy Medya Logo">
+    <h1>Repoxy Medya <span>✔</span></h1>
+    <p>Dijital Pazarlama ve Oyun Hizmetlerinde Profesyonel Çözümler</p>
   </div>
-
-  <div class="button-container">
-    <!-- Buton 1: Instagram -->
-    <div class="button" onclick="window.location.href='/instagram.html'">
-      <span class="icon"><i class="fab fa-instagram"></i></span>
-      <div class="title">İNSTAGRAM SERVİSLERİ V1</div>
-      <span class="icon"><i class="fab fa-instagram"></i></span>
-    </div>
-
-    <!-- Buton 2: Instagram -->
-    <div class="button" onclick="window.location.href='/igV2.html'">
-      <span class="icon"><i class="fab fa-instagram"></i></span>
-      <div class="title">INSTAGRAM SERVİSLERİ V2</div>
-      <span class="icon"><i class="fab fa-instagram"></i></span>
-    </div>
-
-    <!-- Buton 3: TikTok -->
-    <div class="button" onclick="window.location.href='/tiktok.html'">
-      <span class="icon"><i class="fab fa-tiktok"></i></span>
-      <div class="title">TİKTOK HESAP SERVİSLERİ</div>
-      <span class="icon"><i class="fab fa-tiktok"></i></span>
-    </div>
-
-    <!-- Buton 4: YouTube -->
-    <div class="button" onclick="window.location.href='/yt.html'">
-      <span class="icon"><i class="fab fa-youtube"></i></span>
-      <div class="title">YOUTUBE HESAP SERVİSLERİ</div>
-      <span class="icon"><i class="fab fa-youtube"></i></span>
-    </div>
-
-    <!-- Buton 5: Dikkat -->
-    <div class="button" onclick="window.location.href='/report.html'">
-      <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
-      <div class="title">HERHANGİ BİR HESABİ BANLATIN</div>
-      <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
-    </div>
+  
+  
+  
+  
+  
   
 
-  <!-- Telif Hakkı Yazısı -->
-  <div class="copyright">
-   REPOXY MEDYA 2018-2025 
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Hizmet arayın..." onkeyup="searchService()">
+    <button><i class="fas fa-search"></i></button>
   </div>
+
+  <div class="buttons-container" id="buttons-container">
+    <a href="/ig.html" class="button">
+      <div class="icon"><i class="fab fa-instagram"></i></div>
+      <span>Instagram Servisleri</span>
+      
+      
+      
+      
+      
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="/tiktok.html" class="button">
+      <div class="icon"><i class="fab fa-tiktok"></i></div>
+      <span>TikTok Servisleri</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    
+    
+    
+    
+    
+    
+    <a href="/youtube.html" class="button">
+      <div class="icon"><i class="fab fa-youtube"></i></div>
+      <span>YouTube Servisleri</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a href="/ban.html" class="button">
+      <div class="icon"><i class="fas fa-ban"></i></div>
+      <span>Hesap Banlat</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    
+    
+    
+    
+    
+    
+    <a href="/fakeno.html" class="button">
+      <div class="icon"><i class="fas fa-phone-alt"></i></div>
+      <span>Fake No Al</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    
+    
+    
+    
+    
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-globe"></i></div>
+      <span>Web Servisleri</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    
+    
+    
+    
+    
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-shield-alt"></i></div>
+      <span>Güvenilirlik</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-cogs"></i></div>
+      
+      
+      
+      
+      
+      <span>Uygulamalarımız</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-phone-alt"></i></div>
+      
+      
+      
+      
+      <span>Bize Ulaşın</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+
+  <script>
+    function searchService() {
+      const input = document.getElementById('search-input').value.toLowerCase();
+      const buttons = document.getElementsByClassName('button');
+      for (let i = 0; i < buttons.length; i++) {
+        const button = buttons[i];
+        const text = button.querySelector('span').textContent.toLowerCase();
+        if (text.includes(input)) {
+          button.style.display = 'flex'; // Match found, display the button
+        } else {
+          button.style.display = 'none'; // No match, hide the button
+        }
+      }
+    }
+  </script>
 </body>
 </html>
