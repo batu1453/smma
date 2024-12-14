@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Hakkında</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000000; /* Siyah arka plan */
+      color: #ffffff; /* Beyaz yazı rengi */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      font-size: 30px;
+      margin: 8px 0;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333333; /* Koyu gri buton arka plan */
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #555555;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .button .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    .button span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .button .arrow {
+      font-size: 18px;
+    }
+
+    /* Toast mesajı stil */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    /* Toast mesajı görünür olduğunda animasyon */
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    /* Toast animasyonları */
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {opacity: 1;} 
+      to {opacity: 0;}
+    }
+
+    /* Minik yazı alt kısmı */
+    .small-text {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <i class="fas fa-user-shield"></i>
+    <h1>Admin Hakkında</h1>
+    <p>Admin hakkında bilgi almak için aşağıdaki iletişim seçeneklerini kullanabilirsiniz.</p>
+  </div>
+
+  <div class="buttons-container">
+    <a href="https://wa.me/1234567890" class="button">
+      <div class="icon"><i class="fab fa-whatsapp"></i></div>
+      <span>WhatsApp</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+
+    <a href="https://t.me/adminusername" class="button">
+      <div class="icon"><i class="fab fa-telegram"></i></div>
+      <span>Telegram</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+
+  <!-- Toast Mesajı -->
+  <div id="toast">KİŞİSEL HESAPLARIMI PAYLAŞMAM!</div>
+
+  <div class="small-text">
+    İletişim için yukarıdaki butonları kullanabilirsiniz.
+  </div>
+
+  <script>
+    // Toast mesajını göster
+    function showToast() {
+      var toast = document.getElementById("toast");
+      toast.className = "show";
+      setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+  </script>
+</body>
+</html>
