@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyunlarımız</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1f1f, #292929); /* Dinamik arka plan */
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #00f4ff; /* Neon mavi */
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header h1 {
+      font-size: 26px;
+      margin: 8px 0;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #d1d1d1;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .search-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 5px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #444;
+    }
+
+    .search-container input:focus {
+      outline: none;
+      background-color: #555;
+    }
+
+    .icons-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .icons-container a {
+      color: white;
+      font-size: 24px;
+      background-color: #444;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .icons-container a:hover {
+      background-color: #00f4ff;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ff0066; /* Neon kırmızı */
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff3366;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .button .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+    }
+
+    .button span {
+      flex: 1;
+      margin-left: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .button .arrow {
+      font-size: 18px;
+    }
+
+    /* Scrollbar özelleştirme */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #00f4ff;
+      border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 20px;
+      }
+      .buttons-container {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .button {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header i {
+        font-size: 50px;
+      }
+      .button {
+        font-size: 13px;
+        padding: 10px;
+      }
+      .button .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <i class="fas fa-gamepad"></i>
+    <h1>REPOXY GAMES</h1>
+    <p>RepoxyMobile altyapısında olan uygulamalar ve oyunlarımız!</p>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Uygulama ara..." oninput="searchGames()">
+  </div>
+
+
+  <div class="buttons-container" id="buttons-container">
+    <a href="https://bsvpn.vercel.app" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+      
+      <span>Brawl Stars için vpn</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+      
+      
+    </a>
+    <a href="https://snapmods.vercel.app" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+ <span>SnapchatMods apk</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+      
+  
+  
+  
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fas fa-play"></i></div>
+      
+     
+      <span>Yakında...</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <script>
+    function searchGames() {
+      const searchTerm = document.getElementById('search').value.toLowerCase();
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach(button => {
+        const gameName = button.querySelector('span').textContent.toLowerCase();
+        if (gameName.includes(searchTerm)) {
+          button.style.display = 'flex';
+        } else {
+          button.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>a
