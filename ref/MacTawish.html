@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mactawish SHOP</title>
+  
+  <!-- Meta Etiketleri -->
+  <meta name="description" content="MacTawish SHOP: Sosyal medya hizmetleri, mobil uygulama ve oyun çözümleri sunuyor. Yurt dışı numara, VPN ve oyun açıkları gibi hizmetlerle sizlere en iyi hizmeti sunmayı hedefliyoruz.">
+  <meta name="keywords" content="Sosyal Medya, Mobil Uygulama, Oyun Çözümleri, VPN, Yurt Dışı Numara, TikTok, Instagram, Telegram, Facebook, YouTube">
+  <meta name="author" content="MacTawish SHOP">
+  
+  <!-- Open Graph Meta Tags for better social sharing -->
+  <meta property="og:title" content="MacTawish SHOP">
+  <meta property="og:description" content="MacTawish SHOP: Sosyal medya hizmetleri, mobil uygulama ve oyun çözümleri sunuyor.">
+  <meta property="og:image" content="https://i.hizliresim.com/550z916.png">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags for better sharing on Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MacTawish SHOP">
+  <meta name="twitter:description" content="MacTawish SHOP: Sosyal medya hizmetleri, mobil uygulama ve oyun çözümleri sunuyor.">
+  <meta name="twitter:image" content="https://i.hizliresim.com/550z916.png">
+  <meta name="twitter:url" content="https://yourwebsite.com">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header img {
+      width: 270px; /* 270 px genişliğinde logo */
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      margin: 8px 0;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e0e0e0;
+      max-width: 350px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ff0000;
+      color: white;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .button:hover {
+      background-color: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .button:focus {
+      background-color: #cc0000;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .button .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover .icon {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .button span {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .button .arrow {
+      font-size: 18px;
+    }
+
+    /* Scrollbar özelleştirme */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #ff0000;
+      border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 28px;
+      }
+      .buttons-container {
+        width: 100%;
+        padding: 0 10px;
+      }
+      .button {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header i {
+        font-size: 50px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .button {
+        font-size: 12px;
+        padding: 10px;
+      }
+      .button .icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    /* Footer Style - Güncellenmiş */
+    footer {
+      width: 100%;
+      background: none; /* Arka planı kaldırdık */
+      color: #e0e0e0;
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="https://i.hizliresim.com/550z916.png" alt="Logo"> <!-- 270 px genişliğinde logo -->
+    <p style="text-align: center;"><span style="color: #cccccc; font-family: arial; font-size: xx-small;">
+      <br>
+      TİKTOK - YOUTUBE - INSTAGRAM - TELEGRAM - FACEBOOK SERVİSLERİ
+      <br>
+      SAHTE NUMARA - YURTDIŞI NUMARA - WEB YAZILIM
+      <br>
+      HESAP BANLATMA - OYUN AÇIKLARI - VPN - CONFİG 
+    </span></p>
+  </div>
+
+  <div class="buttons-container">
+    <a href="index.html" class="button">
+      <div class="icon"><i class="fas fa-home"></i></div>
+      <span>SOSYAL MEDYA SERVİSLERİ</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+
+    <a href="apps.html" class="button">
+      <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+      <span>Mobil Uygulamamız</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+
+    <a href="/contact.html" class="button">
+      <div class="icon"><i class="fas fa-gamepad"></i></div>
+      <span>İLETİŞİM</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p style="text-align: center;"><span style="color: #cccccc; font-family: arial; font-size: xx-small;">
+      <p>MacTawish Repoxy Shop'u Tercih Ediyor</p>
+    </span></p>
+  </footer>
+</body>
+</html>
