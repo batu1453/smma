@@ -26,81 +26,92 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: #000; /* Simsiyah arka plan */
+      color: #F0F4F8;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 20px;
+      min-height: 100vh;
     }
 
     .header {
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
     }
 
-    .header img {
-      width: 270px; /* 270 px genişliğinde logo */
-      margin-bottom: 10px;
+    .header i {
+      font-size: 70px;
+      color: #1E90FF; /* Mavi renk */
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
     }
 
     .header h1 {
-      font-size: 36px;
-      margin: 8px 0;
+      font-size: 40px;
       font-weight: 700;
-      color: #ffffff;
+      margin: 10px 0;
+      color: #1E90FF; /* Mavi renk */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .header p {
-      font-size: 14px;
-      font-weight: 500;
-      color: #e0e0e0;
-      max-width: 350px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #E1E9F1;
+      max-width: 450px;
       margin: 0 auto;
-      text-align: center;
+      line-height: 1.6;
     }
 
     .buttons-container {
-      width: 90%;
-      max-width: 400px;
-      margin-top: 30px;
+      width: 100%;
+      max-width: 450px;
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
     }
 
     .button {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #ff0000;
+      background: linear-gradient(135deg, #1E90FF, #4682B4); /* Mavi tonlar */
       color: white;
-      padding: 12px 15px;
-      margin: 8px 0;
-      border-radius: 8px;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      padding: 15px 20px;
+      border-radius: 10px;
       text-decoration: none;
       transition: all 0.3s ease;
-      font-size: 14px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
 
     .button:hover {
-      background-color: #cc0000;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.4);
-    }
-
-    .button:focus {
-      background-color: #cc0000;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #4682B4, #1E90FF); /* Hover için mavi geçiş */
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
     .button .icon {
@@ -109,125 +120,95 @@
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.3);
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      font-size: 18px;
+      font-size: 20px;
       transition: all 0.3s ease;
     }
 
     .button:hover .icon {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: white;
+      color: #4682B4; /* Hover için mavi ton */
     }
 
     .button span {
       flex: 1;
-      margin-left: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
+      margin-left: 15px;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .button .arrow {
-      font-size: 18px;
-    }
-
-    /* Scrollbar özelleştirme */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: #ff0000;
-      border-radius: 10px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 28px;
-      }
-      .buttons-container {
-        width: 100%;
-        padding: 0 10px;
-      }
-      .button {
-        font-size: 12px;
-      }
+      font-size: 20px;
     }
 
     @media (max-width: 480px) {
-      .header i {
-        font-size: 50px;
-      }
       .header h1 {
-        font-size: 24px;
+        font-size: 32px;
       }
       .button {
-        font-size: 12px;
-        padding: 10px;
+        font-size: 16px;
+        padding: 12px;
       }
       .button .icon {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
       }
-    }
-
-    /* Footer Style - Güncellenmiş */
-    footer {
-      width: 100%;
-      background: none; /* Arka planı kaldırdık */
-      color: #e0e0e0;
-      text-align: center;
-      padding: 20px 0;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 14px;
+      .header p {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <img src="https://i.hizliresim.com/550z916.png" alt="Logo"> <!-- 270 px genişliğinde logo -->
-    <p style="text-align: center;"><span style="color: #cccccc; font-family: arial; font-size: xx-small;">
-      <br>
-      TİKTOK - YOUTUBE - INSTAGRAM - TELEGRAM - FACEBOOK SERVİSLERİ
-      <br>
-      SAHTE NUMARA - YURTDIŞI NUMARA - WEB YAZILIM
-      <br>
-      HESAP BANLATMA - OYUN AÇIKLARI - VPN - CONFİG 
-    </span></p>
+    <i class="fas fa-tags"></i>
+    <h1>MACTAWISH</h1>
+    
+    
+    
+    
+    
+    
+    <p>
+        
+        
+        
+        Merhaba, " <b><span style="color: #01ffff;">cr7pt0nic</span></b> " kodunu kullanarak, fiziksel ve anonim hatlarda toplamda 300₺'ye kadar indirim kazanma fırsatını yakalayabilirsiniz.
+
+        
+        
+       </p>
+    
+    
+    
+    
+    
+    
   </div>
 
   <div class="buttons-container">
-    <a href="https://repoxy.vercel.app" class="button">
+    <a href="/index.html" class="button">
       <div class="icon"><i class="fas fa-home"></i></div>
-      <span>SOSYAL MEDYA SERVİSLERİ</span>
+      <span>Ana Sayfaya Dön</span>
       <div class="arrow"><i class="fas fa-chevron-right"></i></div>
     </a>
-
-    <a href="https://repoxy.vercel.app/apps.html" class="button">
-      <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-      <span>Mobil Uygulamamız</span>
+    <a href="https://shopier.com" class="button">
+      <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+      <span>Ürünlere Göz At</span>
       <div class="arrow"><i class="fas fa-chevron-right"></i></div>
     </a>
-
-    <a href="https://repoxy.vercel.app/contact.html" class="button">
-      <div class="icon"><i class="fas fa-gamepad"></i></div>
-      <span>İLETİŞİM</span>
+    <a href="https://player.vimeo.com/video/1041925110?h=cc622d9edc" class="button">
+      <div class="icon"><i class="fas fa-question-circle"></i></div>
+      <span>Kod Nasıl Kullanılır?</span>
+      <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+    </a>
+    <a href="/iletisim.html" class="button">
+      <div class="icon"><i class="fas fa-envelope"></i></div>
+      <span>İletişim</span>
       <div class="arrow"><i class="fas fa-chevron-right"></i></div>
     </a>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <p style="text-align: center;"><span style="color: #cccccc; font-family: arial; font-size: xx-small;">
-      <p>MacTawish Repoxy Shop'u Tercih Ediyor</p>
-    </span></p>
-  </footer>
 </body>
 </html>
