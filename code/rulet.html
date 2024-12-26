@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Rulet - Kazanma İhtimalini Hesapla</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .input-section, .result-section {
+            flex: 1;
+            margin: 0 20px;
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+        }
+        p {
+            font-size: 1em;
+            color: #555;
+        }
+        input {
+            padding: 12px;
+            margin: 15px 0;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            width: calc(100% - 30px);
+            font-size: 1em;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h1>Online Rulet Kazanma İhtimali</h1>
+            <p>Bir sayı girin ve kazanma ihtimalinizi öğrenin:</p>
+            <input type="number" id="chosenNumber" min="0" max="36" placeholder="0 - 36 arası bir sayı">
+            <br>
+            <button onclick="calculateProbability()">Kazanma İhtimalini Hesapla</button>
+        </div>
+        <div class="result-section">
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculateProbability() {
+            const chosenNumber = parseInt(document.getElementById('chosenNumber').value);
+            if (isNaN(chosenNumber) || chosenNumber < 0 || chosenNumber > 36) {
+                alert('Lütfen 0 ile 36 arasında geçerli bir sayı girin.');
+                return;
+            }
+
+            // Rulet tekerleklerinde olasılıklar
+            const europeanRouletteOdds = 1 / 37; // 37 slot: 0-36
+            const americanRouletteOdds = 1 / 38; // 38 slot: 0-36 + 00
+
+            // Rastgele çıkan sayıyı simüle et
+            const randomNumberEuropean = Math.floor(Math.random() * 37);
+            const randomNumberAmerican = Math.floor(Math.random() * 38);
+
+            // 1.000, 10.000 ve 100.000 kişilik oyunlarda aynı sayının çıkma ihtimali
+            const peopleCounts = [1000, 10000, 100000];
+
+            let resultHTML = `<h2>Sonuçlar:</h2>`;
+            resultHTML += `<p>Avrupa Ruleti (37 slot): Seçtiğiniz sayının gelme olasılığı: ${(europeanRouletteOdds * 100).toFixed(2)}%</p>`;
+            resultHTML += `<p>Amerikan Ruleti (38 slot): Seçtiğiniz sayının gelme olasılığı: ${(americanRouletteOdds * 100).toFixed(2)}%</p>`;
+
+            peopleCounts.forEach(count => {
+                const europeanHits = (count * europeanRouletteOdds).toFixed(0);
+                const americanHits = (count * americanRouletteOdds).toFixed(0);
+                resultHTML += `<p>${count.toLocaleString()} kişi arasında:</p>`;
+                resultHTML += `<ul>
+                                <li>Avrupa Ruleti: ${europeanHits} kişi kazanır.</li>
+                                <li>Amerikan Ruleti: ${americanHits} kişi kazanır.</li>
+                              </ul>`;
+            });
+
+            // Kullanıcının sayısının tutup tutmadığını belirt
+            resultHTML += `<h3>Avrupa Ruleti:</h3>`;
+            if (chosenNumber === randomNumberEuropean) {
+                resultHTML += `<p>Tebrikler! Seçtiğiniz sayı (${chosenNumber}) Avrupa Ruletinde çıktı!</p>`;
+            } else {
+                resultHTML += `<p>Maalesef, seçtiğiniz sayı (${chosenNumber}) Avrupa Ruletinde çıkmadı. Çıkan sayı: ${randomNumberEuropean}</p>`;
+            }
+
+            resultHTML += `<h3>Amerikan Ruleti:</h3>`;
+            if (chosenNumber === randomNumberAmerican) {
+                resultHTML += `<p>Tebrikler! Seçtiğiniz sayı (${chosenNumber}) Amerikan Ruletinde çıktı!</p>`;
+            } else {
+                resultHTML += `<p>Maalesef, seçtiğiniz sayı (${chosenNumber}) Amerikan Ruletinde çıkmadı. Çıkan sayı: ${randomNumberAmerican}</p>`;
+            }
+
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
